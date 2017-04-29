@@ -1,3 +1,3 @@
-Codigo resposta para a Prova de Desenvolvedor Web - Globosat
+Prova de Desenvolvedor Web - Globosat
 Por Joao Lopes
 
