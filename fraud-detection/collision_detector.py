@@ -2,7 +2,7 @@
 import sys #provides information about constants, functions and methods of the python interpreter
 networks = [] #networks refers to an empty list
 
-class Node(object): #linked list, recursive data structure, Node class
+class Node(object): #linked list, a recursive data structure, Node class
 
     def __init__(self, data=None, next_node=None):
         self.data = data
