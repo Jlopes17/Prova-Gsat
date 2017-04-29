@@ -1,8 +1,8 @@
 #!/usr/bin/python
-import sys
-networks = []
+import sys #provides information about constants, functions and methods of the python interpreter
+networks = [] #networks refers to an empty list
 
-class Node(object):
+class Node(object): #linked list, recursive data structure, Node class
 
     def __init__(self, data=None, next_node=None):
         self.data = data
@@ -31,13 +31,13 @@ class Node(object):
             node = node.get_next()
         node.set_next(list)
 
-def check_nodes(a,b):
+def check_nodes(a,b): #check if two nodes belong to the same collision network
     for network in networks:
         if (str(a) in network and str(b) in network):
             return True
     return False
 
-def print_networks():
+def print_networks(): #print networks
     for network in networks:
         node = network
         while node:
@@ -45,7 +45,7 @@ def print_networks():
             node = node.get_next()
         print
 
-def add_nodes(a, b):
+def add_nodes(a, b): #add new nodes / add new collision between two nodes
     found1 = 0
     found2 = 0
     length = len(networks)
@@ -68,7 +68,7 @@ def add_nodes(a, b):
     if not found1:
         networks.append(Node(a, Node(b)))
 
-with open("examples", "r+") as f:
+with open("examples", "r+") as f: #open file "examples" with permissions
     pairs = [[int(n) for n in line.split()] for line in f.readlines()]
 for pair in pairs:
     add_nodes(pair[0],pair[1])
