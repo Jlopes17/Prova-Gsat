@@ -32,12 +32,22 @@ class Node(object): #linked list, a recursive data structure, Node class
         node.set_next(list)
 
 def check_nodes(a,b): #check if two nodes belong to the same collision network
+    arg1 = False
+    arg2 = False
+    res = None
     for network in networks:
-        if (str(a) in network and str(b) in network):
-            return True
-    return False
+        if a == network.data:
+            arg1 = True
+        if b == network.data:
+            arg2 = True
+    
+    if arg1 and arg2:
+        res = True
+    else:
+        res = False
+    return res
 
-def print_networks(): #print networks
+def print_networks(): 
     for network in networks:
         node = network
         while node:
@@ -67,6 +77,7 @@ def add_nodes(a, b): #add new nodes / add new collision between two nodes
                 node1.merge(Node(b))
     if not found1:
         networks.append(Node(a, Node(b)))
+
 
 with open("examples", "r+") as f: #open file "examples" with permissions
     pairs = [[int(n) for n in line.split()] for line in f.readlines()]
